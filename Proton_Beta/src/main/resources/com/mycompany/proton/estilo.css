@@ -1,0 +1,12 @@
+
+/* estilo.css */
+
+/* Centraliza o cabeçalho (título) das colunas */
+.table-view .column-header .label {
+    -fx-alignment: center;
+}
+
+/* Centraliza o conteúdo das células de texto e números */
+.table-view .table-cell {
+    -fx-alignment: center;
+}
