@@ -1,7 +1,0 @@
-com\mycompany\proton\App.class
-com\mycompany\proton\ClienteCompartilhado.class
-com\mycompany\proton\LoginController.class
-module-info.class
-com\mycompany\proton\ConfigBancoController.class
-com\mycompany\proton\Cliente.class
-com\mycompany\proton\PrimaryController.class
