@@ -63,10 +63,10 @@ CREATE TABLE IF NOT EXISTS clientes_compartilhados (
     status VARCHAR(50),
     banco VARCHAR(50),
     criado_por VARCHAR(255),
-    hora_criacao TIME DEFAULT CURRENT_TIME
+    hora_criacao TIME DEFAULT CURRENT_TIME,
+    valor_seguro VARCHAR(100) DEFAULT 'N/A'
 );
 
--- CORRIGIDO: Agora possui ip_servidor, nome_banco, caminho_conexao
 CREATE TABLE IF NOT EXISTS bancos_nuvem_compartilhada (
     id SERIAL PRIMARY KEY,
     id_cliente INTEGER REFERENCES clientes_compartilhados(id) ON DELETE CASCADE,
@@ -128,27 +128,6 @@ CREATE TABLE IF NOT EXISTS clientes_cancelados (
     hora_criacao TIME DEFAULT CURRENT_TIME
 );
 
-INSERT INTO usuarios_sistema (email, senha, nivel_acesso) VALUES 
-('gabriellevi@fortestecnologia.com.br', 'fortes123', 'MASTER'),
-('pauloteixeira@fortestecnologia.com.br', 'fortes123', 'MASTER'),
-('wcordeiro@fortestecnologia.com.br', 'fortes123', 'MASTER'),
-('vivianlima@fortestecnologia.com.br', 'fortes123', 'N2'),
-('kenedysoares@fortestecnologia.com.br', 'fortes123', 'N2'),
-('damiaosilva@fortestecnologia.com.br', 'fortes123', 'N2');
-
-ALTER TABLE clientes_compartilhados ADD COLUMN valor_seguro VARCHAR(100) DEFAULT 'N/A';
-
--- Define metade dos clientes como "Contábil"
-UPDATE bancos_nuvem_compartilhada 
-SET segmento = 'Contábil' 
-WHERE id % 2 = 0;
-
--- Define a outra metade como "Corporativo"
-UPDATE bancos_nuvem_compartilhada 
-SET segmento = 'Corporativo' 
-WHERE id % 2 != 0;
-
-
 CREATE TABLE IF NOT EXISTS logs_auditoria (
     id SERIAL PRIMARY KEY,
     usuario_email VARCHAR(255),
@@ -164,17 +143,23 @@ CREATE TABLE IF NOT EXISTS controle_versao (
     descricao TEXT
 );
 
--- Registrando a versão inicial do banco de dados
-INSERT INTO controle_versao (versao_db, descricao) 
-VALUES ('1.0', 'Lançamento Inicial - Proton ERP V1');
-
-CREATE TABLE IF NOT EXISTS controle_versao (
-    id SERIAL PRIMARY KEY,
-    versao_db VARCHAR(50) NOT NULL,
-    data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    descricao TEXT
-);
+-- ===================================================================================
+-- INSERÇÕES DE DADOS INICIAIS
+-- ===================================================================================
 
 -- Registrando a versão inicial do banco de dados
 INSERT INTO controle_versao (versao_db, descricao) 
 VALUES ('1.0', 'Lançamento Inicial - Proton ERP V1');
+
+-- Criação dos usuários administradores e N2 com a senha padrão 'fortes123'
+INSERT INTO usuarios_sistema (email, senha, nivel_acesso) VALUES 
+('gabriellevi@fortestecnologia.com.br', 'fortes123', 'MASTER'),
+('pauloteixeira@fortestecnologia.com.br', 'fortes123', 'MASTER'),
+('wcordeiro@fortestecnologia.com.br', 'fortes123', 'MASTER'),
+('vivianlima@fortestecnologia.com.br', 'fortes123', 'N2'),
+('kenedysoares@fortestecnologia.com.br', 'fortes123', 'N2'),
+('damiaosilva@fortestecnologia.com.br', 'fortes123', 'N2');
+
+-- Ajuste de segmentos genéricos (Só fará efeito caso existam bancos cadastrados)
+UPDATE bancos_nuvem_compartilhada SET segmento = 'Contábil' WHERE id % 2 = 0;
+UPDATE bancos_nuvem_compartilhada SET segmento = 'Corporativo' WHERE id % 2 != 0;
