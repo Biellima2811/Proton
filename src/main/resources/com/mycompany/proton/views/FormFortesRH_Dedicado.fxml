@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="341.0" prefWidth="702.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormFortesRHController">
+   <children>
+      <Label layoutX="14.0" layoutY="23.0" text="Ficha Cadastral - FortesRH Dedicado" textFill="#2b3035" underline="true">
+         <font><Font name="System Bold Italic" size="23.0" /></font>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="58.0" prefHeight="230.0" prefWidth="674.0">
+         <children>
+            <Label layoutX="14.0" layoutY="23.0" text="Razão Social:" />
+            <TextField fx:id="txtCliente" layoutX="89.0" layoutY="19.0" prefHeight="26.0" prefWidth="285.0" promptText="Fortes Tecnologia LTDA" />
+            
+            <Label layoutX="388.0" layoutY="24.0" text="CPF / CNPJ:" />
+            <TextField fx:id="txtCnpjCpf" layoutX="461.0" layoutY="20.0" prefHeight="26.0" prefWidth="200.0" promptText="123456789" />
+            
+            <Label layoutX="426.0" layoutY="58.0" text="Data de Criação:" />
+            <DatePicker fx:id="dpDataCriacao" editable="true" layoutX="521.0" layoutY="54.0" prefHeight="26.0" prefWidth="139.0" promptText="01/01/2026" />
+            
+            <Label layoutX="14.0" layoutY="58.0" text="IP Publico:" />
+            <TextField fx:id="txtIpPublico" layoutX="77.0" layoutY="54.0" promptText="192.168.0.1" />
+            
+            <Label layoutX="14.0" layoutY="93.0" text="IP Privado:" />
+            <TextField fx:id="txtIpPrivado" layoutX="77.0" layoutY="89.0" promptText="192.168.0.1" />
+            
+            <Label layoutX="239.0" layoutY="58.0" text="LOAD BALANCE:" />
+            <ComboBox fx:id="cbLoadBalance" editable="true" layoutX="331.0" layoutY="53.0" prefHeight="26.0" prefWidth="87.0" promptText="Sim" />
+            
+            <Label layoutX="14.0" layoutY="127.0" text="IP LOAD BALANCE:" />
+            <TextField fx:id="txtIpLoadBalance" layoutX="125.0" layoutY="123.0" promptText="192.168.0.1" />
+            
+            <Label layoutX="14.0" layoutY="161.0" text="Usuario BD:" />
+            <TextField fx:id="txtUsuarioDb" layoutX="83.0" layoutY="157.0" promptText="postgres" />
+            
+            <Label layoutX="251.0" layoutY="161.0" text="Senha BD:" />
+            <TextField fx:id="txtSenhaDb" layoutX="320.0" layoutY="157.0" promptText="Fortes@1" />
+            
+            <Label layoutX="239.0" layoutY="93.0" text="Versão 2.0:" />
+            <ComboBox fx:id="cbVersao" editable="true" layoutX="331.0" layoutY="89.0" prefWidth="150.0" promptText="Pendente" />
+            <Label layoutX="14.0" layoutY="198.0" text="Link:" />
+            <TextField fx:id="txtLinkAcesso" layoutX="51.0" layoutY="194.0" prefHeight="26.0" prefWidth="608.0" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="468.0" layoutY="296.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Cancelar" />
+      <Button layoutX="572.0" layoutY="296.0" mnemonicParsing="false" onAction="#salvarFortesRH" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Salvar Registro">
+         <effect><Glow /></effect>
+      </Button>
+   </children>
+</AnchorPane>

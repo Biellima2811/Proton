@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="418.0" prefWidth="909.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormClienteCompartilhadoController">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Triagem e Cadastro de Clientes - Nuvem Compartilhada" textFill="#2b3035">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </Label>
+
+        <TabPane layoutX="11.0" layoutY="49.0" prefHeight="292.0" prefWidth="886.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Dados do Cliente">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="886.0" style="-fx-background-color: #ffffff;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="24.0" text="Segmento:">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="cbSegmento" editable="true" layoutX="84.0" layoutY="20.0" prefHeight="26.0" prefWidth="122.0" promptText="Selecione..." />
+        
+                                <Label layoutX="216.0" layoutY="24.0" text="Tipo de nuvem:" />
+                                <ComboBox fx:id="cbTipoNuvem" editable="true" layoutX="304.0" layoutY="20.0" prefWidth="150.0" promptText="Selecione..." />
+        
+                                <Label layoutX="462.0" layoutY="24.0" text="Data de Criação: " />
+                                <DatePicker fx:id="dpDataCriacao" layoutX="552.0" layoutY="20.0" promptText="01/01/2026" />
+        
+                                <Label layoutX="735.0" layoutY="24.0" text="P.O.D" />
+                                <ComboBox fx:id="cbPod" editable="true" layoutX="773.0" layoutY="20.0" prefHeight="26.0" prefWidth="94.0" promptText="8" />
+        
+                                <Label layoutX="13.0" layoutY="69.0" text="Razão Social:">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtRazaoSocial" layoutX="97.0" layoutY="65.0" prefHeight="26.0" prefWidth="359.0" promptText="Nome da empresa" />
+        
+                                <Label layoutX="466.0" layoutY="69.0" text="CNPJ/CPF:" />
+                                <TextField fx:id="txtCpfCnpj" layoutX="531.0" layoutY="65.0" prefHeight="26.0" prefWidth="195.0" promptText="Apenas numeros" />
+        
+                                <Label layoutX="736.0" layoutY="69.0" text="Cod. AG" />
+                                <TextField fx:id="txtCodAg" layoutX="792.0" layoutY="65.0" prefHeight="26.0" prefWidth="77.0" promptText="123" />
+        
+                                <Label layoutX="16.0" layoutY="114.0" text="Pasta de Rede:" />
+                                <TextField fx:id="txtPastaRede" layoutX="102.0" layoutY="110.0" prefHeight="26.0" prefWidth="195.0" promptText="Nome_Cliente" />
+        
+                                <Label layoutX="312.0" layoutY="114.0" text="Sistemas:" />
+                                <TextField fx:id="txtSistemas" layoutX="366.0" layoutY="110.0" prefHeight="26.0" prefWidth="175.0" promptText="Ex: AC, AG, Ponto" />
+        
+                                <Label layoutX="555.0" layoutY="114.0" text="Status:" />
+                                <ComboBox fx:id="cbStatus" editable="true" layoutX="600.0" layoutY="110.0" prefHeight="26.0" prefWidth="106.0" promptText="Selecione..." />
+        
+                                <Label layoutX="715.0" layoutY="114.0" text="Tipo de Base:" />
+                                <ComboBox fx:id="cbBanco" editable="true" layoutX="795.0" layoutY="110.0" prefHeight="26.0" prefWidth="78.0" promptText="SQL" />
+        
+                                <Label layoutX="16.0" layoutY="159.0" text="Contato Responsável:" />
+                                <TextField fx:id="txtContato" layoutX="145.0" layoutY="155.0" prefHeight="26.0" prefWidth="196.0" promptText="Nome" />
+        
+                                <Label layoutX="352.0" layoutY="159.0" text="Telefone:" />
+                                <TextField fx:id="txtTelefone" layoutX="406.0" layoutY="155.0" prefWidth="137.0" promptText="(00) 00000-0000" />
+        
+                                <Label layoutX="554.0" layoutY="159.0" text="Origem:" />
+                                <ComboBox fx:id="cbOrigem" editable="true" layoutX="605.0" layoutY="155.0" prefWidth="110.0" promptText="Selecione..." />
+        
+                                <Label layoutX="725.0" layoutY="159.0" text="Qtd. Usuários:">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtUsuarios" layoutX="809.0" layoutY="155.0" prefHeight="26.0" prefWidth="58.0" promptText="10" />
+
+                                <Label layoutX="16.0" layoutY="204.0" text="E-mail:" />
+                                <TextField fx:id="txtEmail" layoutX="61.0" layoutY="200.0" prefHeight="26.0" prefWidth="224.0" promptText="email@empresa.com" />
+        
+                                <Label layoutX="300.0" layoutY="204.0" text="Razão/CNPJ Antigo:" />
+                                <TextField fx:id="txtRazaoAntiga" layoutX="415.0" layoutY="200.0" prefHeight="26.0" prefWidth="326.0" promptText="Opcional" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab text="Cadastro de Usuários">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="24.0" text="E-mail do Usuário:">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtEmailUsuario" layoutX="125.0" layoutY="20.0" prefHeight="26.0" prefWidth="320.0" promptText="colaborador@empresa.com.br" />
+                                
+                                <Button layoutX="460.0" layoutY="20.0" mnemonicParsing="false" onAction="#inserirEmail" prefWidth="80.0" style="-fx-background-color: #0d6efd; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Inserir" />
+                                <Button layoutX="550.0" layoutY="20.0" mnemonicParsing="false" onAction="#importarCsv" prefWidth="120.0" style="-fx-background-color: #6f42c1; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Importar CSV" />
+                                
+                                <TableView fx:id="tabelaEmails" layoutX="14.0" layoutY="65.0" prefHeight="185.0" prefWidth="850.0">
+                                    <columns>
+                                        <TableColumn fx:id="colUserNum" prefWidth="80.0" text="Índice" />
+                                        <TableColumn fx:id="colUserEmail" prefWidth="760.0" text="E-mail de Acesso Liberado" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab text="Dados de DataBase">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" text="IP do Servidor:" />
+                                <TextField fx:id="txtDbServidor" layoutX="96.0" layoutY="10.0" prefHeight="26.0" prefWidth="180.0" promptText="192.168.0.1" />
+                                
+                                <Label layoutX="290.0" layoutY="14.0" text="SGBD:" />
+                                <ComboBox fx:id="cbDbSgbd" editable="true" layoutX="330.0" layoutY="10.0" prefWidth="100.0" promptText="SQL" />
+
+                                <Label layoutX="445.0" layoutY="14.0" text="Nome Banco:" />
+                                <TextField fx:id="txtDbNome" layoutX="525.0" layoutY="10.0" prefHeight="26.0" prefWidth="150.0" promptText="ABC_AC_123" />
+
+                                <Button layoutX="690.0" layoutY="10.0" mnemonicParsing="false" onAction="#adicionarBanco" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="+ Adicionar à Lista" />
+
+                                <Label layoutX="14.0" layoutY="50.0" text="Usuário DB:" />
+                                <ComboBox fx:id="cbUserBanco" editable="true" layoutX="80.0" layoutY="46.0" prefHeight="26.0" prefWidth="100.0" promptText="SYSDBA" />
+                                
+                                <Label layoutX="195.0" layoutY="50.0" text="Senha DB:" />
+                                <TextField fx:id="txtSenhaBanco" layoutX="255.0" layoutY="46.0" prefWidth="120.0" promptText="Senha" />
+
+                                <Label layoutX="390.0" layoutY="50.0" text="Caminho Físico:" />
+                                <TextField fx:id="txtDbConexao" layoutX="480.0" layoutY="46.0" prefHeight="26.0" prefWidth="380.0" promptText="C:\Fortes\BDS\Dados\Nome_Cliente\ABC_AC_123.FDB" />
+
+                                <TableView fx:id="tabelaBancos" layoutX="14.0" layoutY="85.0" prefHeight="130.0" prefWidth="850.0">
+                                    <columns>
+                                        <TableColumn fx:id="colBancoServidor" prefWidth="120.0" text="Servidor IP" />
+                                        <TableColumn fx:id="colBancoNome" prefWidth="150.0" text="Database" />
+                                        <TableColumn fx:id="colBancoSgbd" prefWidth="80.0" text="SGBD" />
+                                        <TableColumn fx:id="colBancoCaminho" prefWidth="250.0" text="Caminho Físico" />
+                                        <TableColumn fx:id="colBancoUsuario" prefWidth="100.0" text="Usuário DB" />
+                                        <TableColumn fx:id="colBancoSenha" prefWidth="100.0" text="Senha DB" />
+                                    </columns>
+                                </TableView>
+
+                                <Button layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#removerBanco" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-cursor: hand;" text="Remover Selecionado" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <Tab text="Integração / Webservice">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="24.0" text="Sistemas Integrados:">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtWsIntegracao" layoutX="140.0" layoutY="20.0" prefHeight="26.0" prefWidth="180.0" promptText="Ex: AC &lt;&gt; AG" />
+
+                                <Label layoutX="340.0" layoutY="24.0" text="Servidor WS:" />
+                                <ComboBox fx:id="cbWsServidor" editable="true" layoutX="420.0" layoutY="20.0" prefHeight="26.0" prefWidth="150.0" promptText="10.100.104.X" />
+
+                                <Label layoutX="590.0" layoutY="24.0" text="Porta:" />
+                                <TextField fx:id="txtWsPorta" layoutX="630.0" layoutY="20.0" prefHeight="26.0" prefWidth="80.0" promptText="80" />
+
+                                <Label layoutX="14.0" layoutY="74.0" text="Endereço SOAP:" />
+                                <TextField fx:id="txtWsSoap" layoutX="110.0" layoutY="70.0" prefHeight="26.0" prefWidth="320.0" promptText="http://..." />
+
+                                <Label layoutX="450.0" layoutY="74.0" text="Endereço WSDL:" />
+                                <TextField fx:id="txtWsWsdl" layoutX="550.0" layoutY="70.0" prefHeight="26.0" prefWidth="315.0" promptText="http://..." />
+
+                                <Label layoutX="14.0" layoutY="124.0" text="String Conexão BD:" />
+                                <TextField fx:id="txtWsStringBd" layoutX="130.0" layoutY="120.0" prefHeight="26.0" prefWidth="300.0" promptText="IP:Caminho_do_Banco" />
+
+                                <Label layoutX="450.0" layoutY="124.0" text="Usuário BD:" />
+                                <TextField fx:id="txtWsUserBd" layoutX="520.0" layoutY="120.0" prefHeight="26.0" prefWidth="120.0" promptText="sysdba" />
+
+                                <Label layoutX="660.0" layoutY="124.0" text="Senha BD:" />
+                                <TextField fx:id="txtWsSenhaBd" layoutX="725.0" layoutY="120.0" prefHeight="26.0" prefWidth="140.0" promptText="senha" />
+
+                                <Label layoutX="14.0" layoutY="200.0" text="Nota: O preenchimento desta aba é opcional. Utilize apenas se o cliente possuir integração ativa." textFill="#6c757d">
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+
+        <Button layoutX="596.0" layoutY="357.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Cancelar" />
+
+        <Button layoutX="731.0" layoutY="357.0" mnemonicParsing="false" onAction="#salvarCliente" prefHeight="32.0" prefWidth="134.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Salvar Cadastro!">
+            <effect>
+                <Glow />
+            </effect>
+        </Button>
+    </children>
+</AnchorPane>
