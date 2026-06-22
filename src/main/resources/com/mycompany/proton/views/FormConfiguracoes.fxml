@@ -13,78 +13,71 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormConfiguracoesController">
+<AnchorPane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #e9ecef;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormConfiguracoesController">
    <children>
-      <Label layoutX="24.0" layoutY="20.0" text="Configurações e Infraestrutura do Sistema" textFill="#2b3035">
-         <font><Font name="System Bold" size="22.0" /></font>
-      </Label>
-      <Line endX="650.0" layoutX="125.0" layoutY="60.0" startX="-100.0" stroke="#dee2e6" />
+      <AnchorPane style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 5);" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Label layoutX="9.0" layoutY="5.0" text="Configurações e Infraestrutura do Sistema" textFill="#2b3035">
+               <font><Font name="System Bold" size="22.0" /></font>
+            </Label>
+            <Line endX="650.0" layoutX="110.0" layoutY="45.0" startX="-100.0" stroke="#dee2e6" />
 
-      <TabPane layoutX="24.0" layoutY="80.0" prefHeight="400.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Controle de Acessos e Usuários">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-radius: 5px;">
-                     <children>
-                        <Label layoutX="20.0" layoutY="20.0" text="E-mail Corporativo:" />
-                        <TextField fx:id="txtNovoEmail" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="220.0" promptText="usuario@fortestecnologia.com.br" />
-                        
-                        <Label layoutX="255.0" layoutY="20.0" text="Senha de Acesso:" />
-                        <PasswordField fx:id="txtNovaSenha" layoutX="255.0" layoutY="40.0" prefHeight="30.0" prefWidth="150.0" promptText="••••••••" />
-                        
-                        <Label layoutX="420.0" layoutY="20.0" text="Nível de Permissão:" />
-                        <ComboBox fx:id="cbNivelAcesso" layoutX="420.0" layoutY="40.0" prefHeight="30.0" prefWidth="150.0" promptText="Selecione..." />
-                        
-                        <Button layoutX="590.0" layoutY="40.0" mnemonicParsing="false" onAction="#adicionarUsuario" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #0d6efd; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="+ Adicionar Usuário" />
-                        
-                        <TableView fx:id="tabelaUsuarios" layoutX="20.0" layoutY="90.0" prefHeight="200.0" prefWidth="710.0">
-                          <columns>
-                            <TableColumn fx:id="colUserId" prefWidth="50.0" text="ID" />
-                            <TableColumn fx:id="colUserEmail" prefWidth="350.0" text="E-mail (Login)" />
-                            <TableColumn fx:id="colUserPermissao" prefWidth="150.0" text="Nível de Acesso" />
-                            <TableColumn fx:id="colUserStatus" prefWidth="140.0" text="Status" />
-                          </columns>
-                        </TableView>
-                        
-                        <Button layoutX="590.0" layoutY="310.0" mnemonicParsing="false" onAction="#removerUsuario" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="- Remover Selecionado" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          
-          <Tab text="Manutenção do Banco de Dados">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-radius: 5px;">
-                     <children>
-                        <Label layoutX="30.0" layoutY="30.0" text="Diagnóstico de Rede (PostgreSQL)">
-                           <font><Font name="System Bold" size="16.0" /></font>
-                        </Label>
-                        <Label layoutX="30.0" layoutY="60.0" text="Verifique a latência de comunicação entre a sua máquina e o servidor central." textFill="#6c757d" />
-                        
-                        <Button layoutX="30.0" layoutY="90.0" mnemonicParsing="false" onAction="#testarLatencia" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ffc107; -fx-text-fill: #2b3035; -fx-font-weight: bold; -fx-cursor: hand;" text="Realizar Teste de Latência" />
-                        
-                        <Label fx:id="lblResultadoLatencia" layoutX="230.0" layoutY="98.0" text="Aguardando teste..." textFill="#495057">
-                           <font><Font name="System Bold" size="14.0" /></font>
-                        </Label>
-
-                        <Line endX="650.0" layoutX="50.0" layoutY="160.0" startX="-20.0" stroke="#dee2e6" />
-
-                        <Label layoutX="30.0" layoutY="190.0" text="Backup de Segurança (Dump)">
-                           <font><Font name="System Bold" size="16.0" /></font>
-                        </Label>
-                        <Label layoutX="30.0" layoutY="220.0" text="Gera um arquivo físico do banco de dados na sua máquina local sem precisar do pgAdmin." textFill="#6c757d" />
-                        
-                        <Button layoutX="30.0" layoutY="250.0" mnemonicParsing="false" onAction="#realizarBackup" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="⭳ Extrair Backup Agora" />
-                        
-                        <Label fx:id="lblStatusBackup" layoutX="230.0" layoutY="258.0" textFill="#198754">
-                           <font><Font name="System Bold" size="13.0" /></font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-      <Button layoutX="674.0" layoutY="500.0" mnemonicParsing="false" onAction="#fecharJanela" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Fechar" />
+            <TabPane layoutX="9.0" layoutY="65.0" prefHeight="400.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE" style="-fx-background-color: transparent;">
+              <tabs>
+                <Tab text="Controle de Acessos e Usuários">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-radius: 5px;">
+                           <children>
+                              <Label layoutX="20.0" layoutY="20.0" text="E-mail Corporativo:" />
+                              <TextField fx:id="txtNovoEmail" layoutX="20.0" layoutY="40.0" prefHeight="30.0" prefWidth="220.0" promptText="usuario@fortestecnologia.com.br" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="255.0" layoutY="20.0" text="Senha de Acesso:" />
+                              <PasswordField fx:id="txtNovaSenha" layoutX="255.0" layoutY="40.0" prefHeight="30.0" prefWidth="150.0" promptText="••••••••" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="420.0" layoutY="20.0" text="Nível de Permissão:" />
+                              <ComboBox fx:id="cbNivelAcesso" layoutX="420.0" layoutY="40.0" prefHeight="30.0" prefWidth="150.0" promptText="Selecione..." style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Button layoutX="590.0" layoutY="40.0" mnemonicParsing="false" onAction="#adicionarUsuario" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #0d6efd; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 4;" text="+ Adicionar Usuário" />
+                              <TableView fx:id="tabelaUsuarios" layoutX="20.0" layoutY="90.0" prefHeight="200.0" prefWidth="710.0" style="-fx-border-color: #ced4da; -fx-border-radius: 4; -fx-background-radius: 4;">
+                                <columns>
+                                  <TableColumn fx:id="colUserId" prefWidth="50.0" text="ID" />
+                                  <TableColumn fx:id="colUserEmail" prefWidth="350.0" text="E-mail (Login)" />
+                                  <TableColumn fx:id="colUserPermissao" prefWidth="150.0" text="Nível de Acesso" />
+                                  <TableColumn fx:id="colUserStatus" prefWidth="140.0" text="Status" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="590.0" layoutY="310.0" mnemonicParsing="false" onAction="#removerUsuario" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 4;" text="- Remover Selecionado" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                
+                <Tab text="Manutenção do Banco de Dados">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-radius: 5px;">
+                           <children>
+                              <Label layoutX="30.0" layoutY="30.0" text="Diagnóstico de Rede (PostgreSQL)">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                              </Label>
+                              <Label layoutX="30.0" layoutY="60.0" text="Verifique a latência de comunicação entre a sua máquina e o servidor central." textFill="#6c757d" />
+                              <Button layoutX="30.0" layoutY="90.0" mnemonicParsing="false" onAction="#testarLatencia" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #ffc107; -fx-text-fill: #2b3035; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 4;" text="Realizar Teste de Latência" />
+                              <Label fx:id="lblResultadoLatencia" layoutX="230.0" layoutY="98.0" text="Aguardando teste..." textFill="#495057">
+                                 <font><Font name="System Bold" size="14.0" /></font>
+                              </Label>
+                              <Line endX="650.0" layoutX="50.0" layoutY="160.0" startX="-20.0" stroke="#dee2e6" />
+                              <Label layoutX="30.0" layoutY="190.0" text="Backup de Segurança (Dump)">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                              </Label>
+                              <Label layoutX="30.0" layoutY="220.0" text="Gera um arquivo físico do banco de dados na sua máquina local sem precisar do pgAdmin." textFill="#6c757d" />
+                              <Button layoutX="30.0" layoutY="250.0" mnemonicParsing="false" onAction="#realizarBackup" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 4;" text="⭳ Extrair Backup Agora" />
+                              <Label fx:id="lblStatusBackup" layoutX="230.0" layoutY="258.0" textFill="#198754">
+                                 <font><Font name="System Bold" size="13.0" /></font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Button layoutX="659.0" layoutY="485.0" mnemonicParsing="false" onAction="#fecharJanela" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" text="Fechar" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -9,26 +9,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormAuditoriaController">
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #e9ecef;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormAuditoriaController">
     <children>
-        <Label layoutX="20.0" layoutY="20.0" text="Relatório Geral de Auditoria do Sistema" textFill="#2b3035">
-            <font>
-                <Font name="System Bold" size="20.0" />
-            </font>
-        </Label>
-        
-        <DatePicker fx:id="dpFiltroData" layoutX="20.0" layoutY="60.0" prefHeight="26.0" prefWidth="140.0" promptText="Filtrar por Data" />
-        <TextField fx:id="txtFiltroTecnico" layoutX="175.0" layoutY="60.0" prefHeight="26.0" prefWidth="200.0" promptText="Técnico / E-mail" />
-        <TextField fx:id="txtFiltroDetalhes" layoutX="390.0" layoutY="60.0" prefHeight="26.0" prefWidth="350.0" promptText="Palavra-chave (ex: ABENCOADO, EXCLUSÃO)" />
-        <Button layoutX="755.0" layoutY="60.0" mnemonicParsing="false" onAction="#limparFiltros" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-cursor: hand;" text="Limpar Filtros" />
+        <AnchorPane style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 5);" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <Label layoutX="0.0" layoutY="0.0" text="Relatório Geral de Auditoria do Sistema" textFill="#2b3035">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                
+                <DatePicker fx:id="dpFiltroData" layoutX="3.0" layoutY="40.0" prefHeight="26.0" prefWidth="140.0" promptText="Filtrar por Data" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                <TextField fx:id="txtFiltroTecnico" layoutX="155.0" layoutY="40.0" prefHeight="26.0" prefWidth="200.0" promptText="Técnico / E-mail" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                <TextField fx:id="txtFiltroDetalhes" layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="350.0" promptText="Palavra-chave (ex: ABENCOADO, EXCLUSÃO)" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                <Button layoutX="735.0" layoutY="40.0" mnemonicParsing="false" onAction="#limparFiltros" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 4;" text="Limpar Filtros" />
 
-        <TableView fx:id="tabelaLogs" layoutX="20.0" layoutY="100.0" prefHeight="530.0" prefWidth="1060.0">
-            <columns>
-                <TableColumn fx:id="colDataHora" prefWidth="160.0" text="Data e Hora" />
-                <TableColumn fx:id="colUsuario" prefWidth="250.0" text="Técnico / Usuário" />
-                <TableColumn fx:id="colAcao" prefWidth="120.0" text="Ação" />
-                <TableColumn fx:id="colDetalhes" prefWidth="510.0" text="Detalhes do Registro" />
-            </columns>
-        </TableView>
+                <TableView fx:id="tabelaLogs" layoutY="80.0" prefHeight="530.0" prefWidth="1050.0" style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-radius: 6; -fx-background-radius: 6;">
+                    <columns>
+                        <TableColumn fx:id="colDataHora" prefWidth="160.0" text="Data e Hora" />
+                        <TableColumn fx:id="colUsuario" prefWidth="250.0" text="Técnico / Usuário" />
+                        <TableColumn fx:id="colAcao" prefWidth="120.0" text="Ação" />
+                        <TableColumn fx:id="colDetalhes" prefWidth="490.0" text="Detalhes do Registro" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>
