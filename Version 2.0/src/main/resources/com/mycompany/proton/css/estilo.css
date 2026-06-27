@@ -1,0 +1,170 @@
+
+/* estilo.css */
+
+/* Centraliza o cabeçalho (título) das colunas */
+.table-view .column-header .label {
+    -fx-alignment: center;
+}
+
+/* Centraliza o conteúdo das células de texto e números */
+.table-view .table-cell {
+    -fx-alignment: center;
+}
+
+/* ========================================================== */
+/* ESTILIZAÇÃO MODERNA DOS BOTÕES DE AÇÃO (HOVER EFFECTS)     */
+/* ========================================================== */
+
+/* Botão Detalhes (Azul Claro para Escuro) */
+#btnDetalhes {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+#btnDetalhes:hover {
+    -fx-background-color: #0b5ed7;
+    -fx-effect: dropshadow(three-pass-box, rgba(13,110,253,0.4), 10, 0, 0, 0);
+}
+
+/* Botão Editar (Amarelo/Laranja) */
+#btnEditar {
+    -fx-background-color: #ffc107;
+    -fx-text-fill: #2b3035; /* Texto escuro para dar contraste no amarelo */
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+#btnEditar:hover {
+    -fx-background-color: #ffca2c;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,193,7,0.5), 10, 0, 0, 0);
+}
+
+/* Botão Deletar (Vermelho Suave para Vermelho Forte) */
+#btnDeletar {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+#btnDeletar:hover {
+    -fx-background-color: #bb2d3b;
+    -fx-effect: dropshadow(three-pass-box, rgba(220,53,69,0.5), 10, 0, 0, 0);
+}
+
+/* Deixa os botões desativados com transparência para indicar que não podem ser clicados */
+#btnDetalhes:disabled, #btnEditar:disabled, #btnDeletar:disabled {
+    -fx-opacity: 0.5;
+    -fx-effect: none;
+    -fx-cursor: default;
+}
+
+/* =========================================
+   ESTILO DASHBOARD (VISUALIZAÇÃO CLARA E MODERNA)
+========================================== */
+.dashboard-pane {
+    -fx-background-color: #f4f6f9; /* Fundo cinza bem suave */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.dashboard-card {
+    -fx-background-color: #ffffff; /* Fundo do card branquinho */
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 0); /* Sombra elegante */
+}
+
+.dashboard-text-title {
+    -fx-text-fill: #495057; /* Texto chumbo (fácil leitura) */
+    -fx-font-weight: bold;
+}
+
+/* Customização dos Gráficos */
+.chart {
+    -fx-padding: 10px;
+}
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+.chart-pie {
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+}
+.default-color0.chart-pie { -fx-pie-color: #0d6efd; } /* Azul Forte */
+.default-color1.chart-pie { -fx-pie-color: #20c997; } /* Verde Água */
+
+.chart-vertical-grid-lines { -fx-stroke: #e9ecef; }
+.chart-horizontal-grid-lines { -fx-stroke: #e9ecef; }
+.axis { -fx-tick-label-fill: #495057; }
+.axis-label { -fx-text-fill: #495057; }
+.chart-legend { -fx-background-color: transparent; }
+.chart-legend-item { -fx-text-fill: #495057; }
+
+/* Customização da Tabela no Dashboard */
+.tabela-dark {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 0);
+}
+.tabela-dark .column-header-background {
+    -fx-background-color: #e9ecef;
+}
+.tabela-dark .column-header, .tabela-dark .filler {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2b3035;
+    -fx-font-weight: bold;
+}
+.tabela-dark .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #2b3035;
+    -fx-cell-size: 35px;
+}
+.tabela-dark .table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+.tabela-dark .table-row-cell:selected {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+}
+
+/* ======================================================= */
+/* CUSTOMIZAÇÃO DA BARRA DE MENU SUPERIOR (AUDITORIA)      */
+/* ======================================================= */
+
+/* Deixa o texto do menu principal visível (cinza claro) e em negrito */
+.menu-bar > .container > .menu-button > .label {
+    -fx-text-fill: #adb5bd;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+/* Deixa o texto branco quando passa o mouse ou clica */
+.menu-bar > .container > .menu-button:hover > .label,
+.menu-bar > .container > .menu-button:showing > .label {
+    -fx-text-fill: #ffffff;
+}
+
+/* Estiliza a caixinha suspensa que abre com as opções */
+.context-menu {
+    -fx-background-color: #1e2229;
+    -fx-border-color: #3b4248;
+    -fx-border-width: 1px;
+}
+
+/* Cor do texto da opção de dentro (ex: "Visualizar Logs do Sistema") */
+.menu-item > .label {
+    -fx-text-fill: #adb5bd;
+    -fx-font-size: 13px;
+}
+
+/* Efeito de hover na opção de dentro */
+.menu-item:focused {
+    -fx-background-color: #3b4248;
+}
+.menu-item:focused > .label {
+    -fx-text-fill: #ffffff;
+}

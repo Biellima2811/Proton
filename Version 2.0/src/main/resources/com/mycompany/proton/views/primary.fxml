@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.PrimaryController">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="35.0" style="-fx-background-color: #1e2229; -fx-border-color: #3b4248; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                    <menus>
+                        <Menu text="Segurança e Auditoria">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#abrirModalAuditoria" text="Visualizar Logs do Sistema" />
+                            </items>
+                        </Menu>
+                        <Menu text="Ajuda">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#abrirSobre" text="Sobre o Proton" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox alignment="CENTER_RIGHT" prefWidth="400.0" spacing="12.0" style="-fx-padding: 0 20 0 0;">
+                    <children>
+                        <Label prefHeight="18.0" prefWidth="108.0" text="Sessão Ativa:" textFill="#adb5bd" />
+                        <Circle fx:id="circleStatus" fill="#198754" radius="6.0" />
+                        <Label fx:id="lblUsuarioLogado" prefHeight="17.0" prefWidth="125.0" text="Carregando..." textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#fazerLogoff" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold; -fx-padding: 3 10;" text="Sair / Logoff" />
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #0b0e14;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="70.0" prefWidth="240.0" text="PROTON" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            
+                <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#abaDashboard" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: #141824; -fx-text-fill: white; -fx-alignment: center-left; -fx-border-color: #6f42c1; -fx-border-width: 0 0 0 4; -fx-font-weight: bold; -fx-cursor: hand;" text="Dashboard (BI)">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            
+                <Button fx:id="btnDedicados" mnemonicParsing="false" onAction="#abaClientesDedicados" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: #adb5bd; -fx-alignment: center-left; -fx-font-weight: bold; -fx-cursor: hand;" text="Nuvem Dedicados">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            
+                <Button fx:id="btnCompartilhados" mnemonicParsing="false" onAction="#abaClientesCompartilhados" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: #adb5bd; -fx-alignment: center-left; -fx-font-weight: bold; -fx-cursor: hand;" text="Nuvem Compartilhados">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            
+                <Button fx:id="btnFortesRH" mnemonicParsing="false" onAction="#abaFortesRH" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: #adb5bd; -fx-alignment: center-left; -fx-font-weight: bold; -fx-cursor: hand;" text="Gestão FortesRH">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            
+                <Button fx:id="btnCancelados" mnemonicParsing="false" onAction="#abaCancelados" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: #adb5bd; -fx-alignment: center-left; -fx-font-weight: bold; -fx-cursor: hand;" text="Cancelamentos">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+
+                <Button fx:id="btnConfiguracoes" mnemonicParsing="false" onAction="#abrirConfiguracoes" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: #adb5bd; -fx-alignment: center-left; -fx-font-weight: bold; -fx-cursor: hand;" text="⚙ Configurações">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+   
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f8f9fa;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblTituloAba" layoutX="32.0" layoutY="28.0" text="Dashboard de Inteligência (BI)">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+            
+                <StackPane AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="110.0">
+                    <children>
+                        <TableView fx:id="tabelaDedicados" visible="false">
+                            <columns>
+                                <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                                <TableColumn fx:id="colNome" prefWidth="230.0" text="Razão Social" />
+                                <TableColumn fx:id="colCnpj" prefWidth="130.0" text="CNPJ" />
+                                <TableColumn fx:id="colQntServer" prefWidth="70.0" text="Servers" />
+                                <TableColumn fx:id="colAd" prefWidth="120.0" text="AD" />
+                                <TableColumn fx:id="colAmbiente" prefWidth="80.0" text="Ambiente" />
+                                <TableColumn fx:id="colVpn" prefWidth="50.0" text="VPN" />
+                                <TableColumn fx:id="colSgbd" prefWidth="70.0" text="SGBD" />
+                            </columns>
+                        </TableView>
+
+                        <TableView fx:id="tabelaCompartilhados" visible="false">
+                            <columns>
+                                <TableColumn fx:id="colCId" prefWidth="40.0" text="ID" />
+                                <TableColumn fx:id="colCTipoNuvem" prefWidth="80.0" text="Nuvem" />
+                                <TableColumn fx:id="colCPod" prefWidth="50.0" text="POD" />
+                                <TableColumn fx:id="colCData" prefWidth="80.0" text="Criação" />
+                                <TableColumn fx:id="colCRazao" prefWidth="200.0" text="Razão Social" />
+                                <TableColumn fx:id="colCCnpj" prefWidth="130.0" text="CNPJ / CPF" />
+                                <TableColumn fx:id="colCAg" prefWidth="80.0" text="Cod AG" />
+                                <TableColumn fx:id="colCPasta" prefWidth="100.0" text="Pasta Rede" />
+                                <TableColumn fx:id="colCContato" prefWidth="100.0" text="Contato" />
+                                <TableColumn fx:id="colCUsuarios" prefWidth="60.0" text="Usuários" />
+                                <TableColumn fx:id="colCSistemas" prefWidth="150.0" text="Sistemas" />
+                                <TableColumn fx:id="colCStatus" prefWidth="80.0" text="Status" />
+                                <TableColumn fx:id="colCBanco" prefWidth="80.0" text="SGBD" />
+                            </columns>
+                        </TableView>
+
+                        <TableView fx:id="tabelaFortesRH" visible="false">
+                            <columns>
+                                <TableColumn fx:id="colRhId" prefWidth="50.0" text="ID" />
+                                <TableColumn fx:id="colRhAmbiente" prefWidth="100.0" text="Ambiente" />
+                                <TableColumn fx:id="colRhCliente" prefWidth="250.0" text="Cliente" />
+                                <TableColumn fx:id="colRhCnpj" prefWidth="130.0" text="CNPJ / CPF" />
+                                <TableColumn fx:id="colRhUrl" prefWidth="300.0" text="URL de Acesso" />
+                            </columns>
+                        </TableView>
+
+                        <TableView fx:id="tabelaCancelados" visible="false">
+                            <columns>
+                                <TableColumn fx:id="colCancId" prefWidth="50.0" text="ID" />
+                                <TableColumn fx:id="colCancCliente" prefWidth="200.0" text="Cliente (Razão)" />
+                                <TableColumn fx:id="colCancDataCriacao" prefWidth="100.0" text="Criado em" />
+                                <TableColumn fx:id="colCancInicio" prefWidth="100.0" text="Início Cancel." />
+                                <TableColumn fx:id="colCancFim" prefWidth="100.0" text="Fim Cancel." />
+                                <TableColumn fx:id="colCancChamado" prefWidth="120.0" text="Chamado" />
+                                <TableColumn fx:id="colCancTecnico" prefWidth="150.0" text="Técnico" />
+                            </columns>
+                        </TableView>
+
+                        <AnchorPane fx:id="paneDashboard" prefHeight="200.0" prefWidth="200.0" visible="true">
+                            <children>
+                                <VBox spacing="15.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    
+                                    <HBox spacing="15.0" prefHeight="220.0">
+                                        
+                                        <VBox style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 3); -fx-padding: 15;" HBox.hgrow="ALWAYS">
+                                            <Label text="Distribuição" textFill="#191c22">
+                                                <font>
+                                                    <Font name="System Bold" size="16.0" />
+                                                </font>
+                                            </Label>
+                                            <PieChart fx:id="graficoNuvem" legendSide="RIGHT" VBox.vgrow="ALWAYS" />
+                                        </VBox>
+                                        
+                                        <VBox style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 3); -fx-padding: 15;" HBox.hgrow="ALWAYS">
+                                            <Label text="Segmentos" textFill="#191c22">
+                                                <font>
+                                                    <Font name="System Bold" size="16.0" />
+                                                </font>
+                                            </Label>
+                                            <BarChart fx:id="graficoSegmentos" legendVisible="false" VBox.vgrow="ALWAYS">
+                                                <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                </xAxis>
+                                                <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                </yAxis>
+                                            </BarChart>
+                                        </VBox>
+
+                                        <VBox style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 3); -fx-padding: 15;" minWidth="250.0">
+                                            <Label text="Cancelamentos" textFill="#191c22">
+                                                <font>
+                                                    <Font name="System Bold" size="16.0" />
+                                                </font>
+                                            </Label>
+                                            <HBox alignment="CENTER" spacing="30.0" VBox.vgrow="ALWAYS">
+                                                <VBox alignment="CENTER">
+                                                    <Label text="Total Acumulado" textFill="#727784" />
+                                                    <Label fx:id="lblTotalCancelados" text="0" textFill="#191c22">
+                                                        <font>
+                                                            <Font name="System Bold" size="36.0" />
+                                                        </font>
+                                                    </Label>
+                                                </VBox>
+                                                <VBox style="-fx-background-color: #e1e2eb; -fx-pref-width: 1.0;" />
+                                                <VBox alignment="CENTER">
+                                                    <Label text="Hoje" textFill="#727784" />
+                                                    <Label fx:id="lblCanceladosHoje" text="0" textFill="#ba1a1a">
+                                                        <font>
+                                                            <Font name="System Bold" size="36.0" />
+                                                        </font>
+                                                    </Label>
+                                                </VBox>
+                                            </HBox>
+                                        </VBox>
+                                    </HBox>
+
+                                    <VBox style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 3);" VBox.vgrow="ALWAYS" prefHeight="130.0">
+                                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f9f9ff; -fx-padding: 10 15; -fx-border-color: #e1e2eb; -fx-border-width: 0 0 1 0; -fx-background-radius: 8 8 0 0;">
+                                            <Label text="Painel de Novos Clientes" textFill="#191c22">
+                                                <font>
+                                                    <Font name="System Bold" size="14.0" />
+                                                </font>
+                                            </Label>
+                                        </HBox>
+                                        <TableView fx:id="tabelaNovosHoje" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-border-width: 0;">
+                                            <columns>
+                                                <TableColumn fx:id="colHojeHora" prefWidth="100.0" text="HORA" />
+                                                <TableColumn fx:id="colHojeTecnico" prefWidth="250.0" text="TÉCNICO RESPONSÁVEL" />
+                                                <TableColumn fx:id="colHojeCliente" prefWidth="350.0" text="CLIENTE" />
+                                                <TableColumn fx:id="colHojeNuvem" prefWidth="150.0" text="AMBIENTE" />
+                                            </columns>
+                                        </TableView>
+                                    </VBox>
+                                    
+                                    <VBox style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 3);" VBox.vgrow="ALWAYS" prefHeight="130.0">
+                                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f9f9ff; -fx-padding: 10 15; -fx-border-color: #e1e2eb; -fx-border-width: 0 0 1 0; -fx-background-radius: 8 8 0 0;">
+                                            <Label text="Técnicos Online (Acessos em Tempo Real)" textFill="#191c22">
+                                                <font>
+                                                    <Font name="System Bold" size="14.0" />
+                                                </font>
+                                            </Label>
+                                        </HBox>
+                                        <TableView fx:id="tabelaTecnicos" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-border-width: 0;">
+                                            <columns>
+                                                <TableColumn fx:id="colTecUsuario" prefWidth="200.0" text="USUÁRIO" />
+                                                <TableColumn fx:id="colTecSetor" prefWidth="180.0" text="SETOR" />
+                                                <TableColumn fx:id="colTecAcesso" prefWidth="150.0" text="ÚLTIMO ACESSO" />
+                                                <TableColumn fx:id="colTecStatus" prefWidth="150.0" text="STATUS" />
+                                            </columns>
+                                        </TableView>
+                                    </VBox>
+                                    
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </StackPane>
+            
+                <TextField fx:id="txtPesquisa" layoutX="32.0" layoutY="68.0" prefHeight="26.0" prefWidth="302.0" promptText="Filtrar por Razão Social ou CNPJ..." />
+                <Button layoutX="351.0" layoutY="69.0" mnemonicParsing="false" onAction="#abrirModalNovoCliente" style="-fx-cursor: hand;" text="+ Cadastrar Novo" />
+                <Button fx:id="btnDetalhes" layoutX="480.0" layoutY="69.0" mnemonicParsing="false" onAction="#acaoDetalhes" style="-fx-cursor: hand;" text="Detalhar Cliente" />
+                <Button fx:id="btnEditar" layoutX="598.0" layoutY="69.0" mnemonicParsing="false" onAction="#acaoEditar" style="-fx-cursor: hand;" text="Editar Dados do Cliente" />
+                <Button fx:id="btnDeletar" layoutX="760.0" layoutY="69.0" mnemonicParsing="false" onAction="#acaoDeletar" style="-fx-cursor: hand; -fx-background-color: #dc3545; -fx-text-fill: white;" text="Deletar Cliente" />
+                
+                <Label text="Proton ERP [v1.0] · Desenvolvido por Gabriel Levi © 2026 · Uso interno · Todos os direitos reservados." textFill="#6c757d" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="32.0">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+
+            </children>
+        </AnchorPane>
+    </center>
+    
+</BorderPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="818.0" style="-fx-background-color: #e9ecef;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proton.controller.FormCanceladoController">
+   <children>
+      <AnchorPane style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 5);" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label layoutX="10.0" layoutY="4.0" text="Registro de Cancelamento - Desativação de Ambiente" textFill="#2b3035" underline="true">
+               <font><Font name="System Bold Italic" size="18.0" /></font>
+            </Label>
+            <Button layoutX="515.0" layoutY="279.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" text="Fechar" />
+            <TabPane layoutX="4.0" layoutY="31.0" prefHeight="239.0" prefWidth="790.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Dados do Cliente">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="210.0" prefWidth="775.0" style="-fx-background-color: white; -fx-border-color: #e1e2eb; -fx-border-radius: 0 0 6 6;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Segmento:" />
+                              <ComboBox fx:id="cbSegmento" editable="true" layoutX="81.0" layoutY="10.0" prefWidth="150.0" promptText="Corporativo" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="246.0" layoutY="14.0" text="Tipo de Nuvem:" />
+                              <ComboBox fx:id="cbTipoNuvem" editable="true" layoutX="339.0" layoutY="10.0" prefWidth="150.0" promptText="Compartilhada" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="505.0" layoutY="14.0" text="Data de Criação:" />
+                              <DatePicker fx:id="dpDataCriacao" editable="true" layoutX="600.0" layoutY="9.0" prefHeight="26.0" prefWidth="145.0" promptText="01/01/2026" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="14.0" layoutY="54.0" text="Razão Social:" />
+                              <TextField fx:id="txtClienteRazao" layoutX="89.0" layoutY="50.0" prefHeight="26.0" prefWidth="251.0" promptText="Fortes Tecnologia LTD" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="352.0" layoutY="55.0" text="CPF / CNPJ:" />
+                              <TextField fx:id="txtCnpjCpf" layoutX="423.0" layoutY="51.0" prefHeight="26.0" prefWidth="177.0" promptText="123456789 (apenas numeros)" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="608.0" layoutY="56.0" text="Cod. AG:" />
+                              <TextField fx:id="txtCodAg" layoutX="664.0" layoutY="51.0" prefHeight="26.0" prefWidth="121.0" promptText="123456" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="14.0" layoutY="86.0" text="Razão Antiga:" />
+                              <TextField fx:id="txtRazaoAntiga" layoutX="89.0" layoutY="82.0" prefHeight="26.0" prefWidth="251.0" promptText="Opcional ! Apenas se tiver nome antigos" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="352.0" layoutY="87.0" text="CPF/CNPJ Ant:" />
+                              <TextField fx:id="txtCnpjCpfAntigo" layoutX="435.0" layoutY="83.0" prefHeight="26.0" prefWidth="165.0" promptText="Opcional (Antigo)" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="608.0" layoutY="94.0" text="Qtd. Usuarios:" />
+                              <TextField fx:id="txtQtdUsuarios" layoutX="690.0" layoutY="90.0" prefHeight="26.0" prefWidth="61.0" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="14.0" layoutY="121.0" text="Nome da Pasta:" />
+                              <TextField fx:id="txtNomePasta" layoutX="104.0" layoutY="117.0" promptText="Nome_Cliente" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="271.0" layoutY="120.0" text="Origem:" />
+                              <ComboBox fx:id="cbOrigem" editable="true" layoutX="322.0" layoutY="116.0" prefHeight="26.0" prefWidth="125.0" promptText="Base" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="461.0" layoutY="120.0" text="Sistemas:" />
+                              <TextField fx:id="txtSistemas" layoutX="517.0" layoutY="117.0" promptText="AC, AG, Ponto, Patrio" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Triagem de Dados">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: #e1e2eb; -fx-border-radius: 0 0 6 6;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Tipo de Banco:" />
+                              <ComboBox fx:id="cbTipoBanco" editable="true" layoutX="99.0" layoutY="10.0" prefHeight="26.0" prefWidth="123.0" promptText="Firebird" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="238.0" layoutY="15.0" text="Início do Processo:" />
+                              <DatePicker fx:id="dpInicioCancelamento" editable="true" layoutX="342.0" layoutY="10.0" prefHeight="26.0" prefWidth="161.0" promptText="01/01/2026" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="513.0" layoutY="15.0" text="Final do Processo:" />
+                              <DatePicker fx:id="dpFinalCancelamento" editable="true" layoutX="621.0" layoutY="11.0" prefHeight="26.0" prefWidth="162.0" promptText="01/01/2026" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="10.0" layoutY="55.0" text="Nº Chamado Solicitante:" />
+                              <TextField fx:id="txtChamado" layoutX="160.0" layoutY="51.0" promptText="CH202508025089" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="319.0" layoutY="55.0" text="Caminho do Banco:" />
+                              <TextField fx:id="txtCaminhoBanco" layoutX="430.0" layoutY="50.0" prefHeight="26.0" prefWidth="356.0" promptText="C:\Fortes\BDS\Dados\Nome_Cliente" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="10.0" layoutY="87.0" text="Técnico Responsável:" />
+                              <TextField fx:id="txtTecnico" layoutX="129.0" layoutY="83.0" prefHeight="26.0" prefWidth="290.0" promptText="usuario@fortestecnologia.com.br" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                              <Label layoutX="430.0" layoutY="88.0" text="Status do Cancelamento:" />
+                              <ComboBox fx:id="cbStatusCancelamento" editable="true" layoutX="571.0" layoutY="84.0" prefWidth="150.0" promptText="Desativado" style="-fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #ced4da;" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Button layoutX="621.0" layoutY="279.0" mnemonicParsing="false" onAction="#salvarCancelamento" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #198754; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;" text="📜 Registra Cancelamento" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
